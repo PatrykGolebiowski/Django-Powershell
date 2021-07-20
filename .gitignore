@@ -1,2 +1,3 @@
 **/.vscode/
-**/env/pyvenv.cfg
+/env/pyvenv.cfg
+/env/Lib/site-packages/**

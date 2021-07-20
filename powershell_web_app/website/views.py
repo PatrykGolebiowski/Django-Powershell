@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import datetime
 import subprocess
+import json
 # Create your views here.
 
 def welcome(request):
@@ -13,8 +14,13 @@ def date(request):
 
 
 def about(request):
-    response = subprocess.check_output([
+    user = json.loads(subprocess.check_output([
         'powershell.exe',
-        'Get-Process | ft'
-    ])
+        'Get-ADuser -Identity q1444317 -Properties SamAccountName| ConvertTo-Json'
+    ]))
+
+    response = ("Name: %s <br>"
+                "LastName: %s <br>"
+                "ID: %s") % (user["GivenName"], user["Surname"], user["SamAccountName"])
+
     return HttpResponse(response)
