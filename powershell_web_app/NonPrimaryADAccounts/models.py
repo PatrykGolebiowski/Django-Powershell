@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class NonPrimaryADAccount(models.model):
+class NonPrimaryADAccount(models.Model):
     PrimaryID = models.CharField(max_length=30)
     SecondaryID = models.CharField(max_length=30)
     FirstName = models.CharField(max_length=200)
