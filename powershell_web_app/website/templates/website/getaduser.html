@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>{{ad_user.SamAccountName}}</title>
-    </head>
-    <body>
-        <h1>User: {{ad_user.SamAccountName}} {{non_primary_ad_account.Surname}}</h1>
-        <p>FirstName: {{ad_user.GivenName}}</p>
-        <p>Surname: {{ad_user.Surname}}</p>
-        <p>Email: {{ad_user.EmailAddress}}</p>
-        <p>Title: {{ad_user.Title}}</p>
-        <p>Department: {{ad_user.Department}}</p>
-        <p>Company: {{ad_user.Company}}</p>
+{% extends "base.html" %}
 
-        <a href="{% url 'welcome' %}">Home</a>
-    </body>
-</html>
+{% block title %}{{ad_user.SamAccountName}}{% endblock %}
+{% block content %}
+    <h1>User: {{ad_user.SamAccountName}} {{non_primary_ad_account.Surname}}</h1>
+    <p>FirstName: {{ad_user.GivenName}}</p>
+    <p>Surname: {{ad_user.Surname}}</p>
+    <p>Email: {{ad_user.EmailAddress}}</p>
+    <p>Title: {{ad_user.Title}}</p>
+    <p>Department: {{ad_user.Department}}</p>
+    <p>Company: {{ad_user.Company}}</p>
+
+    <a href="{% url 'welcome' %}">Home</a>
+{% endblock %}
