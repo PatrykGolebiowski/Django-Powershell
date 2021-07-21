@@ -16,7 +16,7 @@ def welcome(request):
     # response = ("Hello %s, welcome to my PowerShell Web App!") % userFirstName
 
     return render(request, "website/welcome.html",
-                    {"secondary_account_count": NonPrimaryADAccount.objects.count()})
+                    {"non_primary_ad_accounts": NonPrimaryADAccount.objects.all()})
 
 
 def date(request):

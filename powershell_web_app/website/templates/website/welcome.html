@@ -7,6 +7,17 @@
     <body>
         <h1>Welcome to Powershell Web App</h1>
         <p>This is the application for using Powershell with Python and HTML/CSS</p>
-        <p>There are currently {{secondary_account_count}} accounts created via script.</p>
+        
+        <h2>Created Accounts:</h2>
+        <ul>
+            {% for non_primary_ad_account in non_primary_ad_accounts %}
+                <li>
+                    <a href="{% url 'detail' non_primary_ad_account.id %}">
+                        {{non_primary_ad_account.SecondaryID}}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
     </body>
 </html>

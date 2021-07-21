@@ -22,8 +22,8 @@ from NonPrimaryADAccounts.views import detail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', welcome),
+    path('', welcome, name="welcome"),
     path('date', date),
     path('about', about),
-    path('NonPrimaryADAccounts/<int:id>', detail),
+    path('NonPrimaryADAccounts/<int:id>', detail, name="detail"),
 ]
