@@ -6,7 +6,14 @@ import json
 # Create your views here.
 
 def welcome(request):
-    return HttpResponse("Welcome to the Powershell Web App!")
+    userFirstName = subprocess.check_output([
+        'powershell.exe',
+        '[System.Security.Principal.WindowsIdentity]::GetCurrent().Name'
+    ])
+
+    response = ("Hello %s, welcome to my PowerShell Web App!") % userFirstName
+
+    return HttpResponse(response)
 
 
 def date(request):

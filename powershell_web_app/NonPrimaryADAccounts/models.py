@@ -14,3 +14,6 @@ class NonPrimaryADAccount(models.Model):
     Manager = models.CharField(max_length=200)
     ManagerID = models.CharField(max_length=30)
     CreatedAt = models.DateField()
+
+    def __str__(self):
+        return f"{self.FirstName} {self.Surname} {self.PrimaryID} has received {self.SecondaryID}"
