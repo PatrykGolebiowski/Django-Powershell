@@ -34,3 +34,12 @@ def about(request):
                 "ID: %s") % (user["GivenName"], user["Surname"], user["SamAccountName"])
 
     return HttpResponse(response)
+
+
+def getaduser(request, id):
+    get_ad_user = json.loads(subprocess.check_output([
+        'powershell.exe',
+        'Get-ADuser -Identity %s -Properties SamAccountName,Company,Department,EmailAddress,Title | ConvertTo-Json' % (id)
+    ]))
+
+    return render(request, "website/getaduser.html", {"ad_user": get_ad_user})

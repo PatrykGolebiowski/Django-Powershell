@@ -18,6 +18,7 @@ from django.urls import path
 from website.views import welcome
 from website.views import date
 from website.views import about
+from website.views import getaduser
 from NonPrimaryADAccounts.views import detail
 
 urlpatterns = [
@@ -25,5 +26,6 @@ urlpatterns = [
     path('', welcome, name="welcome"),
     path('date', date),
     path('about', about),
+    path('getaduser/<slug:id>', getaduser, name="getaduser"),
     path('NonPrimaryADAccounts/<int:id>', detail, name="detail"),
 ]
