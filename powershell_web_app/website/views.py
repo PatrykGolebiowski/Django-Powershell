@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import datetime
+from NonPrimaryADAccounts.models import NonPrimaryADAccount
+
 import subprocess
 import json
-# Create your views here.
+
 
 def welcome(request):
     # userFirstName = subprocess.check_output([
@@ -14,7 +16,7 @@ def welcome(request):
     # response = ("Hello %s, welcome to my PowerShell Web App!") % userFirstName
 
     return render(request, "website/welcome.html",
-                    {"message": "This data was sent from the view to the template"})
+                    {"secondary_account_count": NonPrimaryADAccount.objects.count()})
 
 
 def date(request):
