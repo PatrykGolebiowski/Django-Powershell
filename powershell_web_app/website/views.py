@@ -6,14 +6,15 @@ import json
 # Create your views here.
 
 def welcome(request):
-    userFirstName = subprocess.check_output([
-        'powershell.exe',
-        '[System.Security.Principal.WindowsIdentity]::GetCurrent().Name'
-    ])
+    # userFirstName = subprocess.check_output([
+    #     'powershell.exe',
+    #     '[System.Security.Principal.WindowsIdentity]::GetCurrent().Name'
+    # ])
 
-    response = ("Hello %s, welcome to my PowerShell Web App!") % userFirstName
+    # response = ("Hello %s, welcome to my PowerShell Web App!") % userFirstName
 
-    return HttpResponse(response)
+    return render(request, "website/welcome.html",
+                    {"message": "This data was sent from the view to the template"})
 
 
 def date(request):
